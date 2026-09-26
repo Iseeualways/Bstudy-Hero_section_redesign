@@ -37,6 +37,7 @@
             color: var(--ink);
             margin: 0;
             height: 300vh;
+            overflow-x: hidden;
         }
 
         a {
@@ -256,7 +257,7 @@
         }
 
         .hero h1 {
-          font-size: 2.9rem;
+            font-size: 2.9rem;
             font-weight: 600;
             line-height: 1.14;
             color: var(--navy);
@@ -266,7 +267,7 @@
 
         .hero h1 .accent {
             color: var(--sky-deep);
-             font-weight: 700;
+            font-weight: 700;
         }
 
         .hero p.lead-text {
@@ -288,24 +289,29 @@
             box-shadow: 0 14px 34px rgba(21, 42, 92, .08);
             margin-bottom: 1.2rem;
             max-width: 480px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .hero-search i {
-            color: var(--muted)
+            color: var(--muted);
+            flex-shrink: 0;
         }
 
         .hero-search input {
             border: none;
             outline: none;
             flex: 1;
+            min-width: 0;
+            width: 100%;
             font-family: 'Poppins', sans-serif;
             font-size: .88rem;
             padding: .5rem 0;
-            color: var(--ink)
+            color: var(--ink);
         }
 
         .hero-search input::placeholder {
-            color: #9aa2b1
+            color: #9aa2b1;
         }
 
         .hero-search button {
@@ -316,11 +322,13 @@
             padding: .6rem 1.3rem;
             font-weight: 600;
             font-size: .85rem;
-            transition: background .2s
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: background .2s;
         }
 
         .hero-search button:hover {
-            background: var(--sky-deep)
+            background: var(--sky-deep);
         }
 
         .btn-primary-brand {
@@ -386,10 +394,11 @@
 
         .uc-carousel {
             position: relative;
-            border-radius: 10px;
+            border-radius: 30px;
             overflow: hidden;
-            height: 420px;
+            height: 380px;
             box-shadow: 0 3px 0px rgb(5, 167, 216);
+
         }
 
         .uc-progress {
@@ -504,7 +513,7 @@
             margin-bottom: .15rem
         }
 
-      
+
 
         /* ============ FLOATING ACTION BUTTONS ============ */
         .fab {
@@ -561,6 +570,29 @@
 
             .hero {
                 padding: 3.5rem 0
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .ticker-bar,
+            .utility-bar {
+                display: none;
+            }
+
+            .hero-search {
+                max-width: 100%;
+                padding: .4rem .45rem .4rem .85rem;
+                gap: .4rem;
+            }
+
+            .hero-search input {
+                font-size: .78rem;
+            }
+
+            .hero-search button {
+                padding: .55rem .85rem;
+                font-size: .78rem;
             }
         }
     </style>
@@ -676,7 +708,8 @@
 
                 <!-- LEFT: MINIMAL TEXT CONTENT -->
                 <div class="col-lg-6">
-                  <h1>Find The <span class="accent">Top Colleges </span>in <span class="accent">Bangalore</span>, All In One Place</h1>
+                    <h1>Find The <span class="accent">Top Colleges </span>in <span class="accent">Bangalore</span>, All
+                        In One Place</h1>
                     <p class="lead-text">Explore the top colleges in Karnataka across popular courses and streams.
                         Compare your options and get personalized guidance for your admission journey.</p>
 
@@ -705,36 +738,36 @@
                                 <img src="https://bangalorestudy.com/_next/image?url=https%3A%2F%2Fapi.bangalorestudy.com%2Fbanners%2Fimage1701950526944.webp&w=1920&q=75"
                                     alt="Campus photo">
                                 <div class="uc-caption">
-                                  
+
                                     <h5>Sri Devaraj Urs Academy, Kolar</h5>
-                                  
+
                                 </div>
                             </div>
                             <div class="uc-slide" data-dir="top">
                                 <img src="https://bangalorestudy.com/_next/image?url=https%3A%2F%2Fapi.bangalorestudy.com%2Fbanners%2Fimage1701950539900.webp&w=1920&q=75"
                                     alt="Campus photo">
                                 <div class="uc-caption">
-                                
+
                                     <h5>Oxford Medical College & Research Hospital</h5>
-                                 
+
                                 </div>
                             </div>
                             <div class="uc-slide" data-dir="left">
                                 <img src="https://bangalorestudy.com/_next/image?url=https%3A%2F%2Fapi.bangalorestudy.com%2Fbanners%2Fimage1712735406565.webp&w=1920&q=75"
                                     alt="Campus photo">
                                 <div class="uc-caption">
-                                  
+
                                     <h5>Christ University, Bengaluru</h5>
-                                   
+
                                 </div>
                             </div>
                             <div class="uc-slide" data-dir="right">
                                 <img src="https://bangalorestudy.com/_next/image?url=https%3A%2F%2Fapi.bangalorestudy.com%2Fbanners%2Fimage1745318344885.webp&w=1920&q=75"
                                     alt="Campus photo">
                                 <div class="uc-caption">
-                              
+
                                     <h5>KLE Academy of Higher Education</h5>
-                                
+
                                 </div>
                             </div>
                         </div>
