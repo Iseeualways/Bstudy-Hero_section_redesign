@@ -286,7 +286,7 @@
             display: flex;
             align-items: center;
             gap: .6rem;
-            box-shadow: 0 14px 34px rgba(21, 42, 92, .08);
+            box-shadow: 0 14px 14px rgba(21, 42, 92, 0.146);
             margin-bottom: 1.2rem;
             max-width: 480px;
             width: 100%;
@@ -311,25 +311,10 @@
         }
 
         .hero-search input::placeholder {
-            color: #9aa2b1;
+            color: #9aa2b1c8;
+            font-size: 14px;
         }
 
-        .hero-search button {
-            background: var(--sky);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: .6rem 1.3rem;
-            font-weight: 600;
-            font-size: .85rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: background .2s;
-        }
-
-        .hero-search button:hover {
-            background: var(--sky-deep);
-        }
 
         .btn-primary-brand {
             background: var(--sky);
@@ -549,7 +534,7 @@
 
         @media (max-width:991px) {
             .hero h1 {
-                font-size: 2.3rem
+                font-size: 3rem
             }
 
             .uc-carousel {
@@ -577,7 +562,7 @@
 
             .ticker-bar,
             .utility-bar {
-                display: none;
+                display: none !important;
             }
 
             .hero-search {
@@ -593,6 +578,51 @@
             .hero-search button {
                 padding: .55rem .85rem;
                 font-size: .78rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .uc-carousel {
+                height: 280px !important;
+                min-height: 280px !important;
+                overflow: hidden;
+            }
+
+            .uc-slide {
+                height: 280px !important;
+                min-height: 280px !important;
+                position: absolute;
+                inset: 0;
+            }
+
+            .uc-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .uc-caption {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 5;
+                padding: 45px 16px 16px;
+            }
+
+            .uc-caption h5 {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.3;
+                font-weight: 500;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .login-link {
+                display: none !important;
             }
         }
     </style>
@@ -716,7 +746,6 @@
                     <div class="hero-search">
                         <i class="bi bi-search"></i>
                         <input type="text" placeholder="Search for a course, college or exam">
-                        <button type="button">Search</button>
                     </div>
 
                     <button type="button" class="btn-primary-brand">Explore Colleges Now →</button>
