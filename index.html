@@ -534,7 +534,7 @@
 
         @media (max-width:991px) {
             .hero h1 {
-                font-size: 3rem
+                font-size: 2.5rem
             }
 
             .uc-carousel {
@@ -569,6 +569,7 @@
                 max-width: 100%;
                 padding: .4rem .45rem .4rem .85rem;
                 gap: .4rem;
+                margin-bottom: 40px;
             }
 
             .hero-search input {
@@ -584,14 +585,14 @@
         @media (max-width: 600px) {
 
             .uc-carousel {
-                height: 280px !important;
-                min-height: 280px !important;
+                height: 260px !important;
+                min-height: 260px !important;
                 overflow: hidden;
             }
 
             .uc-slide {
-                height: 280px !important;
-                min-height: 280px !important;
+                height: 260px !important;
+                min-height: 260px !important;
                 position: absolute;
                 inset: 0;
             }
@@ -599,7 +600,8 @@
             .uc-slide img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: fill;
+                object-position: center;
                 display: block;
             }
 
@@ -630,6 +632,13 @@
                 font-size: 0.95rem;
                 color: var(--muted);
                 line-height: 1.65;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .btn-primary-brand {
+                display: block;
+                margin: 0 auto;
             }
         }
     </style>
@@ -769,6 +778,7 @@
                                 <span class="uc-seg" data-index="2"><i></i></span>
                                 <span class="uc-seg" data-index="3"><i></i></span>
                                 <span class="uc-seg" data-index="4"><i></i></span>
+                                <span class="uc-seg" data-index="5"><i></i></span>
                             </div>
 
                             <div class="uc-slide uc-on" data-dir="bottom">
@@ -797,6 +807,12 @@
                             </div>
                             <div class="uc-slide" data-dir="top">
                                 <img src="media/Yenepoya.webp" alt="Campus photo">
+                                <div class="uc-caption">
+                                    <h5>Yenepoya (Deemed to be University)</h5>
+                                </div>
+                            </div>
+                            <div class="uc-slide" data-dir="left">
+                                <img src="media/B.SC.webp" alt="Campus photo">
                                 <div class="uc-caption">
                                     <h5>Yenepoya (Deemed to be University)</h5>
                                 </div>
