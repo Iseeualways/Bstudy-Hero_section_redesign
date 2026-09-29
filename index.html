@@ -44,63 +44,6 @@
             text-decoration: none
         }
 
-        /* ============ NEWS TICKER ============ */
-        .ticker-bar {
-            background: white;
-            overflow: hidden;
-            white-space: nowrap;
-            padding: .1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, .06)
-        }
-
-        .ticker-track {
-            display: inline-flex;
-            gap: 3rem;
-            animation: tickerScroll 34s linear infinite;
-            padding-left: 100%
-        }
-
-        .ticker-bar:hover .ticker-track {
-            animation-play-state: paused
-        }
-
-        @keyframes tickerScroll {
-            from {
-                transform: translateX(0)
-            }
-
-            to {
-                transform: translateX(-100%)
-            }
-        }
-
-        .ticker-item {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, .75)
-        }
-
-        .ticker-item strong {
-            color: rgb(44, 42, 42);
-            font-weight: 500;
-            margin-right: .35rem
-        }
-
-        .ticker-item a {
-            color: #63b8ff;
-            font-weight: 500
-        }
-
-        .ticker-item a:hover {
-            text-decoration: underline
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .ticker-track {
-                animation: none;
-                padding-left: 1rem
-            }
-        }
-
         /* ============ UTILITY BAR ============ */
         .utility-bar {
             background: linear-gradient(90deg, var(--sky), var(--sky-deep));
@@ -222,15 +165,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #f2f5fa;
+            background: #fff;
             color: var(--navy);
             border: none;
-            font-size: 1rem
+            font-weight: 700;
+            font-size: 1.6rem
         }
 
-        .more-toggle:hover {
-            background: #e6eaf1
-        }
 
         .login-link {
             font-weight: 600;
@@ -262,12 +203,18 @@
             line-height: 1.14;
             color: var(--navy);
             letter-spacing: -.015em;
-            margin-bottom: 1.3rem
+            margin-bottom: 1.3rem;
         }
 
         .hero h1 .accent {
             color: var(--sky-deep);
             font-weight: 700;
+
+            text-shadow:
+                1px 1px 0 #d8eaf3,
+                2px 2px 0 #c5dfeb,
+                3px 3px 0 #afd3e2,
+                4px 4px 8px rgba(39, 72, 150, 0.18);
         }
 
         .hero p.lead-text {
@@ -382,7 +329,7 @@
             border-radius: 30px;
             overflow: hidden;
             height: 380px;
-            box-shadow: 0 3px 0px rgb(5, 167, 216);
+            box-shadow: 0 3px 0px rgb(4, 168, 218);
 
         }
 
@@ -641,32 +588,56 @@
                 margin: 0 auto;
             }
         }
+
+        /* ============ CAROUSEL DECORATIVE CORNERS ============ */
+        .uc-wrap {
+            position: relative;
+            isolation: isolate;
+        }
+
+        /* TOP RIGHT */
+        .uc-wrap::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 140px;
+            right: -30px;
+            top: -40px;
+
+            background-image: radial-gradient(circle,
+                    rgb(126, 209, 251) 1px,
+                    transparent 1.9px);
+
+            background-size: 16px 16px;
+            z-index: -1;
+        }
+
+        /* BOTTOM LEFT */
+        .uc-wrap::after {
+            content: "";
+            position: absolute;
+            width: 270px;
+            height: 130px;
+            left: -30px;
+            bottom: -44px;
+
+            background-image: radial-gradient(circle,
+                    rgb(140, 217, 255) 1px,
+                    transparent 1.9px);
+
+            background-size: 16px 16px;
+            z-index: -1;
+        }
+
+        .more-toggle::after {
+    display: none !important;
+}
     </style>
 </head>
 
 <body>
 
-    <!-- ============ NEWS TICKER ============ -->
-    <div class="ticker-bar">
-        <div class="ticker-track">
-            <span class="ticker-item"><strong>News 1:</strong> <a href="#">KEA NEET-UG 2026 1st Round Seat Allotment
-                    Released,</a></span>
-            <span class="ticker-item"><strong>News 2:</strong> <a href="#">KEA NEET-MDS 2026 2nd Round Counselling
-                    Schedule Released,</a></span>
-            <span class="ticker-item"><strong>News 3:</strong> <a href="#">AIAPGET 2026 Results Published,</a></span>
-            <span class="ticker-item"><strong>News 4:</strong> <a href="#">KMAT 2026 Admit Card Released,</a></span>
-            <span class="ticker-item"><strong>News 5:</strong> <a href="#">KEA NEET-UG 2nd Round Counselling
-                    Registration Open,</a></span>
-            <span class="ticker-item"><strong>News 1:</strong> <a href="#">KEA NEET-UG 2026 1st Round Seat Allotment
-                    Released,</a></span>
-            <span class="ticker-item"><strong>News 2:</strong> <a href="#">KEA NEET-MDS 2026 2nd Round Counselling
-                    Schedule Released,</a></span>
-            <span class="ticker-item"><strong>News 3:</strong> <a href="#">AIAPGET 2026 Results Published,</a></span>
-            <span class="ticker-item"><strong>News 4:</strong> <a href="#">KMAT 2026 Admit Card Released,</a></span>
-            <span class="ticker-item"><strong>News 5:</strong> <a href="#">KEA NEET-UG 2nd Round Counselling
-                    Registration Open,</a></span>
-        </div>
-    </div>
+
 
     <!-- ============ UTILITY BAR ============ -->
     <div class="utility-bar">
@@ -732,9 +703,9 @@
 
             <div class="d-flex align-items-center gap-3">
                 <div class="dropdown d-none d-lg-block">
-                    <button class="more-toggle dropdown-toggle" data-bs-toggle="dropdown" aria-label="More">
-                        <i class="bi bi-list"></i>
-                    </button>
+                  <button class="more-toggle" data-bs-toggle="dropdown" aria-label="More">
+    <i class="bi bi-list"></i>
+</button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Study Abroad</a></li>
                         <li><a class="dropdown-item" href="#">Scholarships</a></li>
@@ -769,7 +740,10 @@
 
                 <!-- RIGHT: UNIQUE DIRECTIONAL CAROUSEL -->
                 <div class="col-lg-6">
+
                     <div class="uc-wrap">
+                        <div class="uc-decor-bottom"></div>
+                        <div class="uc-decor-top"></div>
 
                         <div class="uc-carousel" id="ucCarousel">
                             <div class="uc-progress" id="ucProgress">
@@ -822,7 +796,141 @@
                 </div>
             </div>
         </div>
+
     </section>
+
+
+
+    <style>
+        .news-bar {
+            background: var(--sky);
+        }
+
+        .news-inner {
+            max-width: 1650px;
+            height: 52px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .news-btn {
+            flex: 0 0 65px;
+            height: 72px;
+            border: 0;
+            background: none;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .news-btn:hover {
+            opacity: .75;
+        }
+
+        /* native scroll = swipe for free */
+        .news-window {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .news-window::-webkit-scrollbar {
+            display: none;
+        }
+
+        .news-item {
+            flex: 0 0 270px;
+            margin-right: 28px;
+            scroll-snap-align: start;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 1200px) {
+            .news-btn {
+                flex-basis: 55px;
+            }
+
+            .news-item {
+                flex-basis: 250px;
+                margin-right: 22px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .news-inner,
+            .news-btn {
+                height: 58px;
+            }
+
+            .news-btn {
+                flex-basis: 45px;
+                font-size: 32px;
+            }
+
+            .news-item {
+                flex-basis: 220px;
+                margin-right: 18px;
+                font-size: 15px;
+            }
+        }
+    </style>
+
+
+    <div class="news-bar">
+        <div class="news-inner">
+            <button class="news-btn" id="prev" aria-label="Previous news">‹</button>
+
+            <div class="news-window" id="news">
+                <a href="#" class="news-item">NEET-MDS 2026 Round 2 Counselling...</a>
+                <a href="#" class="news-item">AP EAPCET 2026 Round 3 Counselling...</a>
+                <a href="#" class="news-item">Karnataka Undergraduate Comm...</a>
+                <a href="#" class="news-item">KEA NEET-UG 2026 Round 1 Seat All...</a>
+                <a href="#" class="news-item">NEET-UG 2026 Counselling Updates...</a>
+                <a href="#" class="news-item">Karnataka Medical Admission 2026...</a>
+                <a href="#" class="news-item">Medical Counselling 2026 Updates...</a>
+                <a href="#" class="news-item">NEET UG Admission Updates...</a>
+            </div>
+
+            <button class="news-btn" id="next" aria-label="Next news">›</button>
+        </div>
+    </div>
+
+    <script>
+        const win = document.getElementById('news');
+        let timer;
+
+        function go(dir) {
+            const [a, b] = win.children;
+            const step = b.offsetLeft - a.offsetLeft;
+            const max = win.scrollWidth - win.clientWidth;
+            const x = win.scrollLeft + dir * step;
+            win.scrollTo({ left: x > max + 1 ? 0 : x < 0 ? max : x });
+        }
+
+        const play = () => { clearInterval(timer); timer = setInterval(() => go(1), 3000); };
+
+        prev.onclick = () => { go(-1); play(); };
+        next.onclick = () => { go(1); play(); };
+        win.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+        win.addEventListener('touchend', play);
+        play();
+    </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -832,7 +940,7 @@
             var slides = Array.prototype.slice.call(carousel.querySelectorAll('.uc-slide'));
             var segs = Array.prototype.slice.call(document.getElementById('ucProgress').querySelectorAll('.uc-seg'));
             var current = 0;
-            var DURATION = 4500;
+            var DURATION = 2000;
             var timer = null;
 
             function setProgress(index) {
